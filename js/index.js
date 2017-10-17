@@ -185,43 +185,51 @@ app.list=(()=>{
         });
         $('<div></div>').attr('id', 'wrapper').appendTo('body');
         $('#wrapper')
-            .html('<nav id="main-menu">\n' +
-                '     <ul class="nav-bar">\n' +
-                '          <li class="nav-button-home">\n' +
-                '            <a href="#"><span class="underbar">추천</span></a></li>\n' +
-                '          <li class="nav-button-services">\n' +
-                '            <a href="#"><span class="underbar">숙소</span></a></li>\n' +
-                '          <li class="nav-button-products">\n' +
-                '            <a href="#"><span class="underbar">트립</span></a></li>\n' +
-                '</nav>');
-
-        $('#wrapper')
-            .append(
+            .html(
+                '<div class="nav-bottom-ligne"></div>' +
+                '<nav class="navbar">' +
+                '  <ul class="navbar-ul">' +
+                '    <li><a href="#">추천</a></li>' +
+                '    <li><a href="#">숙소</a></li>' +
+                '    <li><a href="#">트립</a></li>' +
+                '  </ul>' +
+                '</nav>' +
+                '\n' +
                 '<div id="container">' +
-                '  <div id="content">' +
-                '    <img src="http://images.contentful.com/22n7d68fswlw/502brzgxXqKCUq0qcQQMiI/b00421bd4d322dd4025228a993e8f178/KIKIDELIVERYSERICE_PHOTO_03.jpg?w=1200&h=630">' +
-                '    <div id="content-txt">' +
-                '        <span id="content-txt-info">개인실 / 침대 1개</span><br>' +
-                '        <span id="content-txt-title">고먐미와 함께 해요</span><br>' +
-                '        <span id="content-txt-price">￦16901 /박</span><br>' +
-                '    </div>' +
-                '  </div>' +
-                '</div>');
-        $('img').css({
-            'width': '100%',
-            'max-width':'100%',
-            'vertical-align':'middle'
+                '  <div id="contents">'
+            );
+        $('#contents').css({
+            'margin-top': '33px',
+            'padding':'10px'
         });
+        var arr = [
+            'http://78.media.tumblr.com/524f336bcedd6025a8ae58bef1a98cd6/tumblr_neevvxrk8V1qk5vl4o1_1280.jpg',
+            'http://78.media.tumblr.com/52963a91e5737ee79b53352636cb0c56/tumblr_opgndvpwUN1qk5vl4o2_1280.jpg',
+            'http://78.media.tumblr.com/138a55eafe051ed3ebb48967aa77bdb9/tumblr_o37ng0FdFI1qk5vl4o2_r1_1280.jpg',
+            'http://cfile29.uf.tistory.com/image/17747C314C8EDA5A51D836',
+            'http://yepan.net/data/file/news/thumb/600x0_90/3531380511_b4cbae22_013.jpg',
+            'http://images.contentful.com/22n7d68fswlw/502brzgxXqKCUq0qcQQMiI/b00421bd4d322dd4025228a993e8f178/KIKIDELIVERYSERICE_PHOTO_03.jpg?w=1200&h=630'
+        ];
+
+        $.each(arr,(i,j)=>{
+            var content =
+                '<div class="list-content">'+
+                '    <img class="list-img" src="'+arr[i]+'">' +
+                '    <div class="content-txt">' +
+                '        <span id="content-txt-info">개인실 / 침대 1개</span><br>' +
+                '        <span id="content-txt-title">One room in Seoul</span><br>' +
+                '        <span id="content-txt-price">￦16901 /박</span><br>' +
+                '    </div>'
+                '</div>';
+            $('.content').attr('id','content'+i);
+            $('#contents').append(content);
+        });
+        content += '</div></div></div>';
+        $('#contents').append(content);
+
         $('#container').css({
             'text-align': 'center',
-            'margin-top': '5px',
-            //'border': '1px solid red'
-        });
-        $('#content').css({
-            //'border': '1px solid blue',
-            'width': '90%',
-           /* 'height': '225px',*/
-            'margin': '0 auto'
+            'margin-top': '5px'
         });
     };
     return {onCreate:onCreate};
