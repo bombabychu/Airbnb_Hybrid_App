@@ -112,3 +112,95 @@ a:hover .right:after {
 #content-txt-price{
     font-size:17px;
 }
+
+/*이미지 스와이프 테스트*/
+/* external css: flickity.css */
+
+.carousel {
+    background: white;
+    width:300px;
+    margin: 0 auto;
+}
+
+.carousel-cell {
+    width: 100%;
+    height: 200px;
+    margin-right: 10px;
+    background: blue;
+    border-radius: 0.5em;
+    counter-increment: carousel-cell;
+}
+
+/* cell number */
+.carousel-cell:before {
+    display: block;
+    text-align: center;
+    content: counter(carousel-cell);
+    line-height: 200px;
+    font-size: 80px;
+    color: white;
+}
+/* external css: flickity.css */
+
+/* big buttons, no circle */
+.flickity-prev-next-button {
+    width: 30px;
+    height: 50px;
+    background: transparent;
+}
+/* arrow color */
+.flickity-prev-next-button .arrow {
+    fill: white;
+}
+.flickity-prev-next-button.no-svg {
+    color: white;
+}
+.flickity-prev-next-button:hover {
+    background: transparent;
+}
+/* hide disabled button */
+.flickity-prev-next-button:disabled {
+    display: none;
+}
+/* position dots in carousel */
+.flickity-page-dots {
+    bottom: 5px;
+}
+/* white circles */
+.flickity-page-dots .dot {
+    width: 10px;
+    height: 10px;
+    opacity: 0.5;
+    background: transparent;
+    border: 2px solid white;
+}
+/* fill-in selected dot */
+.flickity-page-dots .dot.is-selected {
+    background: white;
+}
+
+/*디테일 페이지*/
+.detail-img{
+    width: 100%;
+}
+.detail-title{
+    font-size:22px;
+    font-weight: bold;
+    text-align: center;
+    padding: 10px;
+}
+.detail-content{
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 12px;
+    font-weight: bold;
+}
+.detail-content-icon{
+    width: 100%;
+    text-align: center;
+    margin-bottom: 70px;
+}
+.hostel-icon{
+    float: left; width: 25%;
+    padding:10px;
+}
