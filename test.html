@@ -6,18 +6,126 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+        .tab1_on{
+            float: left;
+            background: #862990;
+            padding: 10px 0 10px 0;
+            color: #FFFFFF;
+            font-size: 12px;
+            text-align: center;
+            font-weight: bold;
+            border: 1px solid #83981d;
+        }
+        .tab1_off{
+            float: left;
+            background: #dddddd;
+            padding: 10px 0 10px 0;
+            color: #666666;
+            font-size: 12px;
+            text-align: center;
+            font-weight: bold;
+            border: 1px solid #CCCCCC;
+        }
+    </style>
 </head>
 <body>
 
-<div class="detail-title">One room in Seoul City</div>
-<div class="detail-member-info" >개인실<br>호스트:"아이디" 님</div>
-<div class="detail-hostel-icon" >인원1명 원룸 침대 욕실</div>
-<div class="detail-hostel-info" >숙소 소개</div>
+<table style="width:400px; padding:0 20px 0 20px;"></table>
+<table style="width:400px;">
+    <tbody>
+        <tr>
+            <td style="height:5px; background:#862990;"></td>
+        </tr>
+    </tbody>
+</table>
+<!---- header text ---->
+<table style="width:400px; margin-top:15px;">
+    <tbody>
+        <tr>
+            <td style="font-size:12px; height:30px; font-weight:bold; padding:0 20px 0 20px;">
+                입력하신 <font style="text-decoration: underline;">TID</font>가 유효하지 않습니다.(40자리)
+            </td>
+        </tr>
+    </tbody>
+</table>
+<!---- tab ---->
+<span name="tab1" code="0" style="margin-left: 10px; width: 120px;" class="tab1_on">
+  이메일 + 카드번호</span>
+<span name="tab1" code="3" style="width: 120px;" class="tab1_off">
+  휴대폰번호 + 금액</span>
+<span name="tab1" code="1" style="width: 120px;" class="tab1_off">
+  구매자명 + 금액</span>
+<!---- input field ---->
+<table id="inpTab0" code="0" style="margin-top: 50px; margin-left: 30px; display: table;">
+    <tbody>
+        <tr>
+            <th style="font-size:12px; text-align:left; padding-right:10px;">이메일</th>
+            <td>
+                <input type="text" id="mailBuyer" name="mailBuyer" value="" style="height:26px; color:#777777; padding:5px; border:1px solid #999999; width:250px;">
+            </td>
+        </tr>
+        <tr>
+            <th style="font-size:12px; text-align:left; padding-right:10px;">카드번호</th>
+            <td>
+                <table><tbody>
+                        <tr id="haha">
+                        <td><input type="text" id="noCard1" name="noCard1" value="" maxlength="4" class="max4" code="1" style="height:26px; color:#777777; padding:5px; border:1px solid #999999; width:62px;"></td>
+                        <td><b>-</b></td>
+                        <td><input type="text" id="noCard2" name="noCard2" value="" maxlength="4" class="max4" code="max" style="height:26px; color:#777777; padding:5px; border:1px solid #999999; width:62px;"></td>
+                        <td><b>- XXXX - XXXX</b></td>
+                        </tr>
+                </tbody></table>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<!---- button ---->
+<table style="width:360px; margin-top:20px;">
+    <tbody><tr style="text-align:center;">
+        <td height="30px">
+            <span id="submitFrm" style="background:#862990; padding:7px 20px 7px 20px; font-size:12px; color:#FFFFFF; text-align:center; cursor: pointer;">확 인</span>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<!---- description ---->
+<table style="width:360px; margin-top:30px; padding:10px; border:1px solid #CCCCCC; margin-left:20px;">
+    <tbody>
+    <tr>
+        <td style="font-size:12px; color:#862990; font-weight:bold; border-bottom:1px solid #CCCCCC; height:20px;">
+            ※ 입력 팁! 알아두면 편리합니다.
+        </td>
+    </tr>
+    <tr>
+        <td>
+        <table id="txtTab0" style="display: table;" code="0" class="displayView">
+            <tbody><tr>
+                <td style="font-size:12px; color:#666666; padding-top:10px;">
+            <span>
+              <font style="font-weight:bolder;">"이메일"</font><br>
+              결제 요청 시 자동(입력) 또는 직접 입력한 이메일 정보를 정확히 입력<br>
+              도메인을 포함한 전체 e-mail 주소를 입력<br>
+              &gt; 가령 "abc@abc.com" 주소의 경우, "abc"만 입력하는 경우는 올바르지 않습니다.
+            </span>
+                </td>
+            </tr>
+            <tr>
+                <td style="font-size:12px; color:#666666; padding-top:5px;">
+              <span>
+                <font style="font-weight:bolder;">"카드번호"</font><br>
+                결제한 카드번호 앞 8자리를 입력
+              </span>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        </td>
+    </tr></tbody></table>
+<table style="width:400px; margin-top:20px;">
+    <tbody><tr><td style="background:#862990;"></td>
+    </tr></tbody></table>
 
-<div hostel-icon1><span class="glyphicon glyphicon-user"></span>인원1명</div>
-<div hostel-icon1><span class="glyphicon glyphicon-home"></span>원룸</div>
-<div hostel-icon1><span class="glyphicon glyphicon-bed"></span>침대1개</div>
-<div hostel-icon1><span class="glyphicon glyphicon-tint"></span>욕실1개</div>
 
 
 
