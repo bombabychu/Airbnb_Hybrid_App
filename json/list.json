@@ -1,0 +1,30 @@
+[
+  {
+    "hostSerial": "1",
+    "memberId": "host1",
+    "residenceName": "One room in Seoul City",
+    "adult": null,
+    "teen": null,
+    "child": null,
+    "price": "10000",
+    "zipcode": "123456",
+    "detailImg":"http://cfile29.uf.tistory.com/image/17747C314C8EDA5A51D836",
+    "infoImg": null,
+    "regiContent": "Room with private bathroom in an old country house, located on a sunny slope overlooking the Idro lake (on the border between Lombardia and Trentino-Alto Adige regions). The house is renewed, finished with pine wood, and with ceramic wood stoves. The room and the bathroom are located in an independent part of the house accessible through a small hallway. There is a spacious kitchen for our guests to use (shared with us).",
+    "addr": "서울특별시 서대문구 연희동 117-5번지"
+  },
+  {
+    "hostSerial": "co11111111",
+    "memberId": "hee",
+    "residenceName": "Cozy private room!",
+    "adult": "4",
+    "teen": "3",
+    "child": "1",
+    "price": "52443",
+    "zipcode": "4104",
+    "detailImg": "https://a0.muscache.com/im/pictures/61282212/6e9b122d_original.jpg",
+    "infoImg": null,
+    "regiContent": "Room with private bathroom in an old country house, located on a sunny slope overlooking the Idro lake (on the border between Lombardia and Trentino-Alto Adige regions). The house is renewed, finished with pine wood, and with ceramic wood stoves. The room and the bathroom are located in an independent part of the house accessible through a small hallway. There is a spacious kitchen for our guests to use (shared with us).",
+    "addr": "서울특별시 양천구 중앙로"
+  }
+]

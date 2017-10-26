@@ -10,5 +10,3 @@
     timeFormat: 'hh:ii aa',
     firstDay: 0
 }; })(jQuery);
-
-

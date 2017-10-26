@@ -10,7 +10,31 @@ input {
 input:-webkit-autofill {
     -webkit-box-shadow: inset 0 0 0px 9999px #009999;
 }
+/*header*/
+header{
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    padding: 5%;
+}
 /*login*/
+.pw-guide{
+    position: absolute;
+    top: 10px;
+    right: 8px;
+    color: white;;
+    font-size: 0.8em;
+}
+.arrow{
+    position: relative;
+    display: inline-block;
+    margin: 8px;
+    padding: 8px;
+    box-shadow: 2px -2px 0 0 black inset;
+}
+.arrow-left{
+    transform: rotate(45deg);
+}
 #arrow-box {
     text-align: center;
     padding: 0;
@@ -63,9 +87,30 @@ a:hover .right:after {
     -webkit-transform: rotate(45deg);
     transform: rotate(45deg);
 }
+/*login*/
+.login-guide{
+    border-bottom: 2px solid white;
+    color: white;
+    margin: 10px;
+    margin-top: 30px;
+}
+#id, #password{
+    border: none;
+    border-right: 0px;
+    border-top: 0px;
+    boder-left: 0px;
+    boder-bottom: 0px;
+    outline: none;
+    background: transparent;
+    color: white;
+    margin-top: 10px;
+}
+
+
+
+
 /*이미지 스와이프 테스트*/
 /* external css: flickity.css */
-
 .carousel {
     background: white;
     width:100%;
@@ -102,6 +147,7 @@ a:hover .right:after {
     width: 100%;
     border-bottom-width: 4px;
     border-bottom: 2px solid #D5D8DC;
+    z-index: 200;
 }
 .navbar-ul>li {
     display: inline-block;

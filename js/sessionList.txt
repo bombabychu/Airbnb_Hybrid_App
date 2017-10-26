@@ -1,0 +1,34 @@
+*****세션 펑션 정의******
+app.session={
+    array :(k,v)=>{
+        sessionStorage.setItem(k, JSON.stringify(v));
+    },
+    getArray : k=>{
+        return JSON.parse(sessionStorage.getItem(k));
+    },
+    init : (k,v) => {
+        sessionStorage.setItem(k,v);
+    },
+    getSessionData : k => {
+        return sessionStorage.getItem(k);
+    }
+};
+******세션 등록 리스트 ******
+app.session.array("list",list);
+app.session.init("contentId",i);
+
+var _list = app.session.getArray("list") ;
+var regidence_name = _list[app.session.getSessionData("contentId")].residenceName;
+var regi_content = _list[app.session.getSessionData("contentId")].regiContent;
+var price = _list[app.session.getSessionData("contentId")].price;
+
+app.session.init("total_price",total_price);
+
+app.session.init("start_date",startDate);
+app.session.init("end_date",endDate);
+
+var member_id =  _list[app.session.getSessionData("contentId")].memberId;
+var addr =  _list[app.session.getSessionData("contentId")].addr;
+
+app.session.init("start_string",startString);
+app.session.init("end_string",endString);
