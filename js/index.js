@@ -22,7 +22,7 @@ app.member = (() => {
             e.preventDefault();
             var id = $('#id').val();
             var pass = $('#password').val();
-            console.log('입력된 id, pass : ' + id + ' , ' + pass);
+            //console.log('입력된 id, pass : ' + id + ' , ' + pass);
             $.ajax({
                 async: false,
                 url: 'json/member.json',
@@ -196,9 +196,9 @@ app.list = (() => {
                     'margin-top': '5px'
                 });
                 $('#content' + i + '').click(e => {
-                    console.log('선택한 content ID : ' + i);
+                    //console.log('선택한 content ID : ' + i);
                     app.session.init("contentId",i);
-                    console.log("세션에 저장된 해당 컨탠트 아이디 : "+app.session.getSessionData("contentId"));
+                    //console.log("세션에 저장된 해당 컨탠트 아이디 : "+app.session.getSessionData("contentId"));
                     app.detail.onCreate();
                 });
             });
@@ -250,7 +250,7 @@ app.detail = (() => {
                     '       </div>' +
                     '       <div class="detail-content" >숙소 소개<br>' +
                     '           <div id="info-txt" style="font-size: 10px;font-weight: normal;">'+regi_content+'</div>' +
-                    '           <div style="border:2px solid greenyellow;margin: 30px;height: 200px;">구글 지도가 들어갈 겁니다.</div>' +
+                    '           <div id="gmap" style="margin: 30px;height: 200px;"></div>' +
                     '           <div class="detail-footer"><p>￦'+price+'/1박</p>' +
                     '           <button id="res-btn" class="res-btn">예약 가능 여부 확인</button></div>' +
                     '       </div>' +
@@ -258,6 +258,7 @@ app.detail = (() => {
         $('#contents').append(content);
         $('#contents').before(app.compUI.image('detail-img', _list[app.session.getSessionData("contentId")].detailImg));
         $('#detail-img').addClass('detail-img');
+        $("#gmap").load("map.html");
     };
     return {onCreate: onCreate};
 })();
@@ -316,8 +317,6 @@ app.reservation = (() => {
             minDate: new Date(),
             range: true,
             onSelect: function (fd, d, picker) {
-                console.log("fd값 : "+ fd);
-                console.log("d값 : "+ d);
                 function formatDate(date) {
                     var week = new Array('일', '월', '화', '수', '목', '금', '토');
                     var d = new Date(date),
@@ -660,7 +659,7 @@ app.approved = (() => {
             })
             .html('<header style="text-align:left;color:white;position: fixed; left: 0px;">' +
                 '  <div style="min-width: 300px;">' +
-                '<h3 class="type-it">'+member_id+'님, 안녕하세요!</h3>' +
+                '<h3 class="type-it">'+member_id+'님,<br> 안녕하세요!</h3>' +
                 '  <p style="font-size: 25px;text-align: left;">' +
                 '       새로운 숙소에서 편안한<br>' +
                 '       시간 보내시길 바랍니다.<br>' +
