@@ -28,9 +28,9 @@ app.member = (() => {
                 url: 'json/member.json',
                 type: 'post',
                 data: {id: id, pass: pass},
-                dataType: 'jsonp',
-                jsonpCallback: 'photos',
-                jsonp: 'callback',
+                dataType: 'json',
+/*                jsonpCallback: 'photos',
+                jsonp: 'callback',*/
                 success: d => {
                     //alert('진입 성공');
                     $.each(d, (i, o) => {
@@ -235,15 +235,17 @@ app.detail = (() => {
                 '   </div>' +
                 '</div>');
         var _list = app.session.getArray("list") ;
-        var regidence_name = _list[app.session.getSessionData("contentId")].residenceName;
-        var regi_content = _list[app.session.getSessionData("contentId")].regiContent;
+        var residence_name = _list[app.session.getSessionData("contentId")].residenceName;
+        var resi_content = _list[app.session.getSessionData("contentId")].resiContent;
         var price = _list[app.session.getSessionData("contentId")].price;
         var member_id =  _list[app.session.getSessionData("contentId")].memberId;
         var host_serial = _list[app.session.getSessionData("contentId")].hostSerial;
         console.log('세션 멤버 아이디 : '+member_id);
+        console.log('세션 멤버 resiContent : '+resi_content);
+
         var content =
                     '   <div id="content'+ app.session.getSessionData("contentId") +'">'+
-                    '       <div class="detail-title">'+regidence_name+'</div>' +
+                    '       <div class="detail-title">'+residence_name+'</div>' +
                     '       <div class="detail-content" >개인실<br>호스트: <a href="#">'+member_id+'</a> 님</div>' +
                     '       <div class="detail-content-icon" >' +
                     '           <div class="hostel-icon"><span class="glyphicon glyphicon-user"></span><br>인원1명</div>' +
@@ -252,7 +254,7 @@ app.detail = (() => {
                     '           <div class="hostel-icon"><span class="glyphicon glyphicon-tint"></span><br>욕실1개</div>' +
                     '       </div>' +
                     '       <div class="detail-content" >숙소 소개<br>' +
-                    '           <div id="info-txt" style="font-size: 10px;font-weight: normal;">'+regi_content+'</div>' +
+                    '           <div id="info-txt" style="font-size: 10px;font-weight: normal;">'+resi_content+'</div>' +
                     '           <div class="detail-footer"><p>￦'+price+'/1박</p>' +
                     '           <button id="res-btn" class="res-btn">예약 가능 여부 확인</button></div>' +
                     '       </div>' +
