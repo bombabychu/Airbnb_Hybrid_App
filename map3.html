@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, user-scalable=no,  maximum-scale=1, minimum-scale=1, width=device-width" charset="UTF-8">
+    <!--CSS LINK-->
+    <link rel="stylesheet" href="css/index.css" type="text/css">
+    <!--JS LINK-->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB2po9awT3gcPJdB_pK8XKHVZitS2zg-1U&callback=mapstart" async defer></script>
+    <style>
+        #map {
+            height: 100%;
+        }
+    </style>
+    <title> Google Map Test3 </title>
+</head>
+<body>
+
+    <div id="map"></div>
+
+<script>
+
+    var total_list = app.session.getArray("list") ;
+    var geocoder,map, lat, lng,addMarker1,content,infowin;
+    var mapstart=()=> {
+        var mapOptions = {
+            zoom : 8,
+            center : new google.maps.LatLng(37.56667,126.97806)
+        };
+        map = new google.maps.Map(document.getElementById('map'),mapOptions);
+        geoAddress();
+    };
+    geoAddress=()=> {
+        geocoder = new google.maps.Geocoder();
+        var addr_arr = [];
+        var price_arr = [];
+        for(var i=0;i<total_list.length;i++){
+
+            addr_arr.push(total_list[i].addr);
+            console.log('addr_arr : '+addr_arr[i]);
+
+            price_arr.push(total_list[i].price);
+            console.log('price_arr : '+ price_arr[i]);
+
+            content  ='￦ '+price_arr[i];
+
+            geocoder.geocode({'address': addr_arr[i]}, (results, status) => {
+                if (status == google.maps.GeocoderStatus.OK) {
+                    lat = results[0]['geometry']['location']['lat']();
+                    lng = results[0]['geometry']['location']['lng']();
+
+                    infowindow = new google.maps.InfoWindow({
+                        content: content,
+                        center: results[0].geometry.location,
+                        map:map
+                    });
+
+                   /* addMarker1 = new google.maps.Marker({
+                        map:map,
+                        position: results[0].geometry.location,
+                        info: content
+                    });*/
+                } else {
+                    alert('Geocode was not successful for the following reason: ' + status);
+                }
+            });
+        };
+    };
+
+</script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+[
+  {
+    "mapseq": "1",
+    "flag": "lat",
+    "host_serial": "host_1",
+    "latlng": "34.960478"
+  },
+  {
+    "mapseq": "2",
+    "flag": "lng",
+    "host_serial": "host_1",
+    "latlng": "135.741920"
+  },
+  {
+    "mapseq": "3",
+    "flag": "lat",
+    "host_serial": "host_2",
+    "latlng": "48.871800"
+  },
+  {
+    "mapseq": "4",
+    "flag": "lng",
+    "host_serial": "host_2",
+    "latlng": "2.303213"
+  },
+  {
+    "mapseq": "5",
+    "flag": "lat",
+    "host_serial": "host_3",
+    "latlng": "37.554138"
+  },
+  {
+    "mapseq": "6",
+    "flag": "lng",
+    "host_serial": "host_3",
+    "latlng": "126.922913"
+  },
+  {
+    "mapseq": "7",
+    "flag": "lat",
+    "host_serial": "host_4",
+    "latlng": "37.553661"
+  },
+  {
+    "mapseq": "8",
+    "flag": "lng",
+    "host_serial": "host_4",
+    "latlng": "126.968969"
+  }
+]

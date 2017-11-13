@@ -28,7 +28,9 @@ app.member = (() => {
                 url: 'json/member.json',
                 type: 'post',
                 data: {id: id, pass: pass},
-                dataType: 'json',
+                dataType: 'jsonp',
+                jsonpCallback: 'photos',
+                jsonp: 'callback',
                 success: d => {
                     //alert('진입 성공');
                     $.each(d, (i, o) => {
@@ -237,7 +239,8 @@ app.detail = (() => {
         var regi_content = _list[app.session.getSessionData("contentId")].regiContent;
         var price = _list[app.session.getSessionData("contentId")].price;
         var member_id =  _list[app.session.getSessionData("contentId")].memberId;
-
+        var host_serial = _list[app.session.getSessionData("contentId")].hostSerial;
+        console.log('세션 멤버 아이디 : '+member_id);
         var content =
                     '   <div id="content'+ app.session.getSessionData("contentId") +'">'+
                     '       <div class="detail-title">'+regidence_name+'</div>' +
@@ -250,7 +253,6 @@ app.detail = (() => {
                     '       </div>' +
                     '       <div class="detail-content" >숙소 소개<br>' +
                     '           <div id="info-txt" style="font-size: 10px;font-weight: normal;">'+regi_content+'</div>' +
-                    '           <div id="gmap" style="margin: 30px;height: 200px;"></div>' +
                     '           <div class="detail-footer"><p>￦'+price+'/1박</p>' +
                     '           <button id="res-btn" class="res-btn">예약 가능 여부 확인</button></div>' +
                     '       </div>' +
@@ -258,7 +260,8 @@ app.detail = (() => {
         $('#contents').append(content);
         $('#contents').before(app.compUI.image('detail-img', _list[app.session.getSessionData("contentId")].detailImg));
         $('#detail-img').addClass('detail-img');
-        $("#gmap").load("map.html");
+        $('#info-txt').append('<div id="gmap" style="margin: 30px;height: 200px;"></div>');
+        $("#gmap").load("map4.html");
     };
     return {onCreate: onCreate};
 })();
@@ -317,6 +320,8 @@ app.reservation = (() => {
             minDate: new Date(),
             range: true,
             onSelect: function (fd, d, picker) {
+                console.log('d값:  '+d);
+                console.log('fd값:  '+fd);
                 function formatDate(date) {
                     var week = new Array('일', '월', '화', '수', '목', '금', '토');
                     var d = new Date(date),

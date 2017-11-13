@@ -32,3 +32,5 @@ var addr =  _list[app.session.getSessionData("contentId")].addr;
 
 app.session.init("start_string",startString);
 app.session.init("end_string",endString);
+
+app.session.init("host_serial",host_serial);

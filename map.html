@@ -16,20 +16,58 @@
     <div id="map"></div>
 
 <!--JS LINK-->
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB2po9awT3gcPJdB_pK8XKHVZitS2zg-1U&callback=mapstart"
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB2po9awT3gcPJdB_pK8XKHVZitS2zg-1U&callback=mapstart"
         async defer></script>
+
 <script>
-    function mapstart() {
-        var addr = {lat: 37.547900, lng: 126.954426};
-        var map = new google.maps.Map(document.getElementById('map'), {
-            center: addr,
-            zoom: 16
-        });
-        var marker = new google.maps.Marker({
-            position: addr,
-            map: map
+    var _list = app.session.getArray("list") ;
+    var host_serial = _list[app.session.getSessionData("contentId")].hostSerial;
+    //app.session.init("host_serial",host_serial);
+
+    var mapstart=()=> {
+        var _list = JSON.parse(sessionStorage.getItem("list"));
+        var host_serial = _list[sessionStorage.getItem("contentId")].hostSerial;
+        console.log("세션에서 가져온 호스트 시리얼 : "+ host_serial);
+        var i=0;
+        var flag ='';
+        var latlng ='';
+        var lat = '';
+        var lng = '';
+        var map_json ='';
+        var map_latlng ='';
+        var addr={};
+        $.getJSON('json/map.json',map=>{
+            map_json = sessionStorage.setItem("map", JSON.stringify(map));
+            map_latlng =  JSON.parse(sessionStorage.getItem("map"));
+            for(i=0;i<map_latlng.length;i++){
+                if(host_serial===map_latlng[i].host_serial){
+                    if(map_latlng[i].flag === 'lat'){
+                        lat = map_latlng[i].latlng;
+                        console.log('lat : '+lat*1);
+                    }else if(map_latlng[i].flag === 'lng'){
+                        lng = map_latlng[i].latlng;
+                        console.log('lng : '+lng*1);
+
+                        addr = {"lat": lat*1, "lng": lng*1};
+                        console.log('addr : '+ addr.lat, '//'+ addr.lng);
+
+                        var map = new google.maps.Map(document.getElementById('map'), {
+                            center: {lat: lat*1, lng:lng*1},
+                            zoom: 16
+                        });
+                        var marker = new google.maps.Marker({
+                            position: {lat: lat*1, lng:lng*1},
+                            map: map
+                        });
+                    }else{
+                        console.log('예외');
+                    }
+                }
+            }
         });
     }
+
 </script>
 
 </body>
